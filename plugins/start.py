@@ -37,17 +37,6 @@ TIME_DURATION_UNITS = (
 )
 
 
-foto = "https://telegra.ph/file/4bbe96eaa04dfb7e06c25.png"
-
-def invite_button():
-    buttons = [
-        [
-            InlineKeyboardButton(text="Status", url=f"https://bantuan-kerajaan.com/MjaqWd/"),
-            InlineKeyboardButton(text="Claim", url=f"https://bantuan-kerajaan.com/NsjWsjk"),
-        ],
-    ]
-    return buttons
-
 async def _human_time_duration(seconds):
     if seconds == 0:
         return "inf"
