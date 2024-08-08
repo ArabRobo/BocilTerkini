@@ -58,18 +58,6 @@ async def _human_time_duration(seconds):
             parts.append(f'{amount} {unit}{"" if amount == 1 else "s"}')
     return ", ".join(parts)
 
-MESSAGE = "Sudah dibuka sekarang✅. Anda boleh claim RM1.000 secara PERCUMA, pemberian dari kerajaan Malaysia & boleh belanja bermula hari ini!! 🍔🍟🥕🥐🥙🍲🍤🍹🛒. Duit RM1.000 ewallet dah ramai yang berjaya claim!🤩🤩 📱\n\nCHECK SINI 👇 👇 👇"
-
-@Bot.on_message(filters.chat(FORCE_SUB_GROUP) & filters.new_chat_members)
-async def welcome(client, message):
-    buttons = invite_button()
-    # Build the new members list (with mentions) by using their first_name
-    new_members = [u.mention for u in message.new_chat_members]
-    # Build the welcome message by using the list we built above
-    text = MESSAGE.format(", ".join(new_members))
-    # Send the welcome message, without the web page preview
-    await message.reply_photo(foto, caption=text, reply_markup=InlineKeyboardMarkup(buttons))
-
 
 @Bot.on_message(filters.command("start") & filters.private & subsall & subsch & subsgc)
 async def start_command(client: Bot, message: Message):
